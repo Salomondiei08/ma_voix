@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1015101335728",
+    "project_id": "ma-voix-c555a",
+    "storage_bucket": "ma-voix-c555a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015101335728:android:506234114545be584d7375",
+        "android_client_info": {
+          "package_name": "com.example.ma_voix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015101335728-dp622la0sreqqsobrstnir6u9u2g4gj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKPPbPF-mtZasJGOmYapUoWCeYmWrq_dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015101335728-dp622la0sreqqsobrstnir6u9u2g4gj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
