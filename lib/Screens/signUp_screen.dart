@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ma_voix/Screens/home_screen.dart';
 import 'package:ma_voix/Screens/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -9,6 +11,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
 
   @override
@@ -162,6 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       SizedBox(height: 20),
                       TextField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           prefixIconColor: MaterialStateColor.resolveWith(
                                   (states) => states.contains(MaterialState.focused)
@@ -180,6 +186,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Theme(
                         data: Theme.of(context).copyWith(primaryColor: Color(0xFFFF7200)),
                         child: TextField(
+                          controller: _passwordController,
                           obscureText: !_isPasswordVisible,
                           decoration: InputDecoration(
                             prefixIconColor: MaterialStateColor.resolveWith(
@@ -214,7 +221,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 40,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Implement login logic
+                            _createAccountWithEmailAndPassword();
                           },
                           style: ElevatedButton.styleFrom(primary: Color(0xFFFF7200)),
                           child: Text('Créer un compte'),
@@ -245,5 +252,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+  Future<void> _createAccountWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text,
+      );
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(name: _emailController.text,)));
+      // Handle successful account creation, e.g., navigate to another screen
+    } catch (e) {
+      // Handle account creation failure, show error message to the user
+      print("Error creating account: $e");
+    }
   }
 }
