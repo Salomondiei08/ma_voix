@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  carousel_slider: ^4.2.1
   firebase_core: ^2.15.0
   flutter:
     sdk: flutter
@@ -18,3 +19,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - images/logo-baniere.png
+    - images/Icon awesome-google.png
+    - images/Icon awesome-facebook.png
+    - images/bg_image.png
+
