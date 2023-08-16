@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ma_voix/Screens/signUp_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -23,6 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
   ];
 
   bool _isPasswordVisible = false;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -177,6 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
               data: Theme.of(context)
                   .copyWith(primaryColor: Color(0xFFFF7200),),
               child: TextField(
+                controller: _emailController,
                 decoration: InputDecoration(
                   prefixIconColor: MaterialStateColor.resolveWith((states) =>
                   states.contains(MaterialState.focused)
@@ -192,34 +200,31 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(height: 10),
-            Theme(
-              data: Theme.of(context)
-                  .copyWith(primaryColor: Color(0xFFFF7200),),
-              child: TextField(
-                obscureText: !_isPasswordVisible,
-                decoration: InputDecoration(
-                  prefixIconColor: MaterialStateColor.resolveWith((states) =>
-                  states.contains(MaterialState.focused)
-                      ? Color(0xFFFF7200): Colors.grey),
-                 
-                  filled: true,
-                  labelText: 'Mot de passe',
-                  prefixIcon: Icon(Icons.lock_outlined),
-                  focusedBorder: OutlineInputBorder(
+            TextField(
+              controller: _passwordController,
+              obscureText: !_isPasswordVisible,
+              decoration: InputDecoration(
+                prefixIconColor: MaterialStateColor.resolveWith((states) =>
+                states.contains(MaterialState.focused)
+                    ? Color(0xFFFF7200): Colors.grey),
 
-                    borderSide: BorderSide(color: Color(0xFFFF7200)),),
-                  suffixIcon: IconButton(
-                    icon: Icon( 
-                      _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _isPasswordVisible = !_isPasswordVisible;
-                      });
-                    },
+                filled: true,
+                labelText: 'Mot de passe',
+                prefixIcon: Icon(Icons.lock_outlined),
+                focusedBorder: OutlineInputBorder(
+
+                  borderSide: BorderSide(color: Color(0xFFFF7200)),),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
                   ),
-                  border: OutlineInputBorder(),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
                 ),
+                border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 10),
@@ -251,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 40,
               child: ElevatedButton(
                 onPressed: () {
-                  // Implement login logic
+                 _signInWithEmailAndPassword();
                 },
                 style: ElevatedButton.styleFrom(primary: Color(0xFFFF7200)),
                 child: Text('Se connecter'),
@@ -345,5 +350,19 @@ class _LoginScreenState extends State<LoginScreen> {
       ],
     );
   }
+
+  Future<void> _signInWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text,
+      );
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(name: _emailController.text,)));
+    } catch (e) {
+      // Handle login failure, show error message to the user
+      print("Error signing in: $e");
+    }
+  }
+
 
 }
