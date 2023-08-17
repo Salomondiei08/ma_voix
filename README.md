@@ -26,6 +26,11 @@ Téléchargez MaVoix dès aujourd'hui et faites entendre votre voix!
 
 Pour toute question ou assistance, veuillez nous contacter à [adresse e-mail de contact](mailto:adresse_e-mail).
 
+
+## Avoir accès à l'application
+
+Pouvoir avoir accès à l'application, cliquez sur le lien suivant : [Ma Voix](https://ma-voix-c555a.web.app)
+
 *Ensemble, nous créons l'avenir de la démocratie.*
 
 ![Logo de MaVoix](web/favicon.png)
