@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ma_voix/Screens/home_screen.dart';
-import 'package:ma_voix/Screens/login_screen.dart';
+import '../responsive_layout.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -234,7 +234,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Text("Déjà un compte ?"),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> ResponsiveLayout()));
                             },
                             child: Text(
                               'Connectez vous !',

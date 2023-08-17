@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../constants/page_dimensions.dart';
-import 'package:ma_voix/Screens/login_screen.dart';
 
 
 class ResponsiveWidget extends StatelessWidget {
