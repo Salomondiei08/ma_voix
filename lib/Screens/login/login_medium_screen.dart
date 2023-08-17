@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ma_voix/Screens/signUp_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../constants/couleurs.dart';
 import '../home_screen.dart';
 
 class LoginMediumScreen extends StatefulWidget {
@@ -46,7 +47,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                     end: Alignment.centerRight,
                     colors: [
                       const Color(0xFF50dcbb).withOpacity(0.5),
-                      const Color(0xFF127b36).withOpacity(0.5),
+                      greenColor.withOpacity(0.5),
                     ],
                   ),
                 ),
@@ -108,7 +109,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey),
+                    border: Border.all(color: grayColor),
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -137,7 +138,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey),
+                    border: Border.all(color: grayColor),
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -176,17 +177,17 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
             const SizedBox(height: 20),
             Theme(
               data: Theme.of(context)
-                  .copyWith(primaryColor: const Color(0xFFFF7200),),
+                  .copyWith(primaryColor: orangeColor,),
               child: TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   prefixIconColor: MaterialStateColor.resolveWith((states) =>
                   states.contains(MaterialState.focused)
-                      ? const Color(0xFFFF7200): Colors.grey),
+                      ? orangeColor: grayColor),
                   filled: true,
                   labelText: 'Email',
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFFFF7200)),),
+                    borderSide: BorderSide(color: orangeColor),),
                   prefixIcon: const Icon(Icons.mail_outlined),
                   border: const OutlineInputBorder(),
                 ),
@@ -199,14 +200,14 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
               decoration: InputDecoration(
                 prefixIconColor: MaterialStateColor.resolveWith((states) =>
                 states.contains(MaterialState.focused)
-                    ? const Color(0xFFFF7200): Colors.grey),
+                    ? orangeColor: grayColor),
 
                 filled: true,
                 labelText: 'Mot de passe',
                 prefixIcon: const Icon(Icons.lock_outlined),
                 focusedBorder: const OutlineInputBorder(
 
-                  borderSide: BorderSide(color: Color(0xFFFF7200)),),
+                  borderSide: BorderSide(color: orangeColor),),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
@@ -224,7 +225,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
             Row(
               children: [
                 Checkbox(
-                  checkColor: const Color(0xFFFF7200),
+                  checkColor: orangeColor,
                   value: false, // Change this according to your needs
                   onChanged: (value) {
                     // Implement your logic here
@@ -238,7 +239,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                   },
                   child: const Text(
                     'Mot de passe oublié ?',
-                    style: TextStyle(color: Colors.green, decoration: TextDecoration.underline),
+                    style: TextStyle(color: greenColor, decoration: TextDecoration.underline),
                   ),
                 ),
               ],
@@ -251,7 +252,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                 onPressed: () {
                  _signInWithEmailAndPassword();
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFFF7200)),
+                style: ElevatedButton.styleFrom(backgroundColor: orangeColor),
                 child: const Text('Se connecter'),
               ),
             ),
@@ -266,7 +267,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                   },
                   child: const Text(
                     'Créer un compte',
-                    style: TextStyle(color: Color(0xFFFF7200)),
+                    style: TextStyle(color: orangeColor),
                   ),
                 ),
               ],
@@ -293,7 +294,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
               colors: [
                 const Color(0xFF50dcbb).withOpacity(0.8),
                 const Color(0xFF127b36).withOpacity(0.5),
-                Colors.green
+                greenColor
               ],
             ),
           ),
@@ -331,7 +332,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
                         shape: BoxShape.circle,
                         color: index == carouselTexts.indexOf(text)
                             ? Colors.white
-                            : Colors.grey,
+                            : grayColor,
                       ),
                     ),
                   ),
