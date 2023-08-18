@@ -32,9 +32,7 @@ class _LoginLargeScreenState extends State<LoginLargeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: Row(
           children: [
             Expanded(
@@ -74,8 +72,7 @@ class _LoginLargeScreenState extends State<LoginLargeScreen> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildLoginContent() {

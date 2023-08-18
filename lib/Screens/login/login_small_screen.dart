@@ -34,11 +34,8 @@ class _LoginSmallScreenState extends State<LoginSmallScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: _buildLoginContent()),
-    );
+    return  Scaffold(
+        body: _buildLoginContent(),);
   }
 
   Widget _buildLoginContent() {

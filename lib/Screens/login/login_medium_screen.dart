@@ -34,9 +34,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: ListView(
           children: [
             Expanded(
@@ -71,8 +69,7 @@ class _LoginMediumScreenState extends State<LoginMediumScreen> {
             ),
           ],
         ), 
-      ),
-    );
+      );
   }
 
   Widget _buildLoginContent() {

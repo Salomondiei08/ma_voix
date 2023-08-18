@@ -19,9 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: const Color(0xFFf2f2f2),
         body: Center(
           child: ConstrainedBox(
@@ -261,8 +259,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 
   Future<void> _createAccountWithEmailAndPassword() async {
