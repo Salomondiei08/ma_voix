@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants/couleurs.dart';
+import '../../responsive_layout.dart';
 import '../../widgets/custom_home_appbar.dart';
 import '../../widgets/list_canditats_items.dart';
 import '../../widgets/top_menu_items.dart';
@@ -74,7 +75,12 @@ class _HomeLargeScreenState extends State<HomeLargeScreen> {
                 ),
                 const SizedBox(width: 100),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ResponsiveLayout()));
+                  },
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
