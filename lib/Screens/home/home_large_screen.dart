@@ -12,6 +12,8 @@ class HomeLargeScreen extends StatefulWidget {
 }
 
 class _HomeLargeScreenState extends State<HomeLargeScreen> {
+  final TextEditingController _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -424,7 +426,7 @@ class _HomeLargeScreenState extends State<HomeLargeScreen> {
           // body part 2
           Container(
             height: 400,
-            color: lightGrayColor,
+            color: const Color(0xFF62B7A7).withOpacity(0.5),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30.0),
               child: Row(
@@ -446,7 +448,8 @@ class _HomeLargeScreenState extends State<HomeLargeScreen> {
                       children: [
                         Text(
                           "Une diversité de +300 candidats prêts \nà représenter vos idées et vos préoccupations",
-                          style: TextStyle(color: secondGreenColor, fontSize: 27),
+                          style:
+                              TextStyle(color: secondGreenColor, fontSize: 27),
                         ),
                         SizedBox(
                           height: 25,
@@ -465,21 +468,624 @@ class _HomeLargeScreenState extends State<HomeLargeScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top:30.0),
-            child: const Center(
-              child: Text(
-                'ACTUALITÉS',
-                style: TextStyle(
-                    color: grayColor, fontWeight: FontWeight.w800, fontSize: 20),
+
+          //actualité section
+          Container(
+            color: const Color(0xFFF5F3F3),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50.0),
+              child: Column(
+                children: [
+                  const Center(
+                    child: Text(
+                      'ACTUALITÉS',
+                      style: TextStyle(
+                          color: grayColor,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 20),
+                    ),
+                  ),
+                  const Center(
+                    child: Divider(
+                      color: secondGreenColor,
+                      indent: 640, // Espacement à gauche (optionnel)
+                      endIndent: 640,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 360,
+                          width: 230,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              30.0,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              // actualité image
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        color: Colors.deepOrange,
+                                        borderRadius: BorderRadius.circular(
+                                          30.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 15,
+                                      top: 10,
+                                      child: Container(
+                                        height: 25,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius: BorderRadius.circular(
+                                            7.0,
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Politique',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // actualité date
+                                      const Text(
+                                        '18 août 2023',
+                                        style: TextStyle(
+                                          color: secondGreenColor,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité title
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet',
+                                        style: TextStyle(
+                                            color: grayColor,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité description
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy...',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      // author
+                                      Row(
+                                        children: [
+                                          // author info
+                                          CircleAvatar(
+                                            backgroundImage:
+                                                AssetImage('images/face1.jpg'),
+                                            radius: 20,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Michel Adje',
+                                                style: const TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 10,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Admin',
+                                                style: const TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: 17,
+                                          ),
+                                          // readtime
+                                          Row(
+                                            children: [
+                                              Container(
+                                                height: 5,
+                                                width: 5,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: secondGreenColor,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              // actualité description
+                                              const Text(
+                                                'lecture de 2 min',
+                                                style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 360,
+                          width: 230,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              30.0,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              // actualité image
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        color: Colors.deepOrange,
+                                        borderRadius: BorderRadius.circular(
+                                          30.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 15,
+                                      top: 10,
+                                      child: Container(
+                                        height: 25,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius: BorderRadius.circular(
+                                            7.0,
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Politique',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // actualité date
+                                      const Text(
+                                        '18 août 2023',
+                                        style: TextStyle(
+                                          color: secondGreenColor,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité title
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet',
+                                        style: TextStyle(
+                                            color: grayColor,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité description
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy...',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      // author
+                                      Row(
+                                        children: [
+                                          // author info
+                                          const CircleAvatar(
+                                            backgroundImage:
+                                                AssetImage('images/face1.jpg'),
+                                            radius: 20,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          const Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Michel Adje',
+                                                style: TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 10,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Admin',
+                                                style: TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            width: 17,
+                                          ),
+                                          // readtime
+                                          Row(
+                                            children: [
+                                              Container(
+                                                height: 5,
+                                                width: 5,
+                                                decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: secondGreenColor,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              // actualité description
+                                              const Text(
+                                                'lecture de 2 min',
+                                                style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 360,
+                          width: 230,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              30.0,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              // actualité image
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        color: Colors.deepOrange,
+                                        borderRadius: BorderRadius.circular(
+                                          30.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 15,
+                                      top: 10,
+                                      child: Container(
+                                        height: 25,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius: BorderRadius.circular(
+                                            7.0,
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Politique',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // actualité date
+                                      const Text(
+                                        '18 août 2023',
+                                        style: TextStyle(
+                                          color: secondGreenColor,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité title
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet',
+                                        style: TextStyle(
+                                            color: grayColor,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      // actualité description
+                                      const Text(
+                                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy...',
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      // author
+                                      Row(
+                                        children: [
+                                          // author info
+                                          const CircleAvatar(
+                                            backgroundImage:
+                                                AssetImage('images/face1.jpg'),
+                                            radius: 20,
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          const Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Michel Adje',
+                                                style: TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 10,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Admin',
+                                                style: TextStyle(
+                                                  color: grayColor,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            width: 17,
+                                          ),
+                                          // readtime
+                                          Row(
+                                            children: [
+                                              Container(
+                                                height: 5,
+                                                width: 5,
+                                                decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: secondGreenColor,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              // actualité description
+                                              const Text(
+                                                'lecture de 2 min',
+                                                style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 8,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          const Center(
-            child: Divider(
-              color: secondGreenColor,
-              indent: 640, // Espacement à gauche (optionnel)
-              endIndent: 640,
+          // follow section
+          SizedBox(
+            height: 600,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset(
+                  'images/Groupe 97.png',
+                  fit: BoxFit.cover,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Lorem ipsum dolor sit amet, consetetur \nsadipscing elitr, sed diam nonumy eirmod tempor \ninvidunt ut labore et dolore magna. ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 45,
+                          width: 350,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              topLeft: Radius.circular(20),
+                            ),
+                          ),
+                          child: TextField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
+                              labelText: 'Entrer votre Email',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(20),
+                                  topLeft: Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 45,
+                          width: 200,
+                          decoration: const BoxDecoration(
+                            color: secondGreenColor,
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                          ),
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'S\'abonner',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          // bottom page section
+          Container(
+            height: 40,
+            color: secondGreenColor,
+            child: const Center(
+              child: Text(
+                'Tous droits réservés  ©2023 - MaVoix ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
             ),
           ),
         ],
