@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:ma_voix/responsive_layout.dart';
 import 'Screens/home/home_large_screen.dart';
 import 'firebase_options.dart';
 
