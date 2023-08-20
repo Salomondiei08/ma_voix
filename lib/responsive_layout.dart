@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Screens/login/login_large_screen.dart';
-import 'Screens/login/login_medium_screen.dart';
+// import 'Screens/login/login_medium_screen.dart';
 import 'Screens/login/login_small_screen.dart';
 import 'widgets/responsiveness.dart';
 
@@ -21,7 +21,7 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
     return const Scaffold(
       body: ResponsiveWidget(
       LargeScreen: LoginLargeScreen(),
-      MediumScreen: LoginMediumScreen(),
+      MediumScreen: LoginLargeScreen(),
       SmallScreen: LoginSmallScreen(),
       ),
     );

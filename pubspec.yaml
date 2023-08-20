@@ -22,8 +22,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/logo-baniere.png
-    - images/Icon awesome-google.png
-    - images/Icon awesome-facebook.png
-    - images/bg_image.png
+    - images/
 
