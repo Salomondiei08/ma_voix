@@ -762,10 +762,11 @@ class TopMenu extends StatelessWidget {
             child: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.person, color: orangeColor), // Icône orange
+                // affiche l'icone ssi le user est connecté
+                //Icon(Icons.person, color: orangeColor), // Icône orange
                 SizedBox(width: 8), // Espacement entre l'icône et le texte
                 Text(
-                  'Mon compte',
+                  'S\'identifier',
                   style: TextStyle(color: orangeColor), // Texte orange
                 ),
               ],
