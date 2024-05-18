@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ma_voix/Screens/signUp_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 import '../../constants/couleurs.dart';
 import '../home_screen.dart';
+import '../signUp_screen.dart';
 
 class LoginMediumScreen extends StatefulWidget {
 

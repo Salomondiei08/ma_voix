@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:ma_voix/Screens/home_screen.dart';
+import 'home_screen.dart';
 import '../constants/couleurs.dart';
 import '../responsive_layout.dart';
 
